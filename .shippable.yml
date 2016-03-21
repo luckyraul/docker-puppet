@@ -10,8 +10,6 @@ build:
     image_name: mygento/puppet
     image_tag: $BUILD_OS
     pull: false
-  ci:
-     - puppet -V
   push:
     - docker push mygento/puppet:$BUILD_OS
 
