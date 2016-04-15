@@ -2,6 +2,8 @@ env:
   matrix:
     - BUILD_OS='wheezy'
     - BUILD_OS='latest'
+  allow_failures:
+    - BUILD_OS='wheezy'
 build:
   pre_ci:
     - if [[ $BUILD_OS == 'wheezy' ]]; then docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/puppet:$BUILD_OS wheezy; fi
