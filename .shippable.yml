@@ -1,21 +1,14 @@
-env:
-  matrix:
-    - BUILD_OS='wheezy'
-    - BUILD_OS='latest'
-  allow_failures:
-    - BUILD_OS='wheezy'
 build:
   pre_ci:
-    #- if [[ $BUILD_OS == 'wheezy' ]]; then docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/puppet:$BUILD_OS wheezy; fi
-    - if [[ $BUILD_OS == 'latest' ]]; then docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/puppet:$BUILD_OS .; fi
+    - docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/puppet:latest .
   pre_ci_boot:
     image_name: mygento/puppet
-    image_tag: $BUILD_OS
+    image_tag: latest
     pull: false
   ci:
     - puppet -V
   push:
-    - docker push mygento/puppet:$BUILD_OS
+    - docker push mygento/puppet:latest
 
 integrations:
     hub:
