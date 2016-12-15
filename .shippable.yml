@@ -1,13 +1,15 @@
 build:
   pre_ci:
-    - docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/puppet:latest .
+    - docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/puppet:jessie .
   pre_ci_boot:
     image_name: mygento/puppet
-    image_tag: latest
+    image_tag: jessie
     pull: false
   ci:
     - puppet -V
   push:
+    - docker tag -f mygento/deployer:jessie mygento/deployer:latest
+    - docker push mygento/puppet:jessie
     - docker push mygento/puppet:latest
 
 integrations:
