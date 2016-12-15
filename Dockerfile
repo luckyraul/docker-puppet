@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:jessie-slim
 MAINTAINER Nikita Tarasov <nikita@mygento.ru>
 
 # Let the conatiner know that there is no tty
@@ -9,7 +9,7 @@ RUN apt-get -qq update && apt-get upgrade -qqy
 RUN apt-get install -qqy git apt-transport-https wget cron unzip && apt-get clean
 
 RUN apt-get install -qqy rubygems puppet && \
-gem install --no-rdoc --no-ri activesupport -v 4.2.7 && \
+gem install --no-rdoc --no-ri activesupport -v 4.2.7.1 && \
 gem install librarian-puppet --no-rdoc --no-ri && \
 apt-get clean
 
