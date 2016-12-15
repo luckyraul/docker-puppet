@@ -8,7 +8,7 @@ build:
   ci:
     - puppet -V
   push:
-    - docker tag -f mygento/deployer:jessie mygento/deployer:latest
+    - docker tag -f mygento/puppet:jessie mygento/puppet:latest
     - docker push mygento/puppet:jessie
     - docker push mygento/puppet:latest
 
