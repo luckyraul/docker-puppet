@@ -1,4 +1,4 @@
 # docker-puppet
 Docker image for puppet build system
 
-[![](https://badge.imagelayers.io/mygento/puppet.svg)](https://imagelayers.io/?images=mygento/puppet)
+[![](https://images.microbadger.com/badges/image/mygento/puppet.svg)](https://microbadger.com/images/mygento/puppet "")
